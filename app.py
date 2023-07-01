@@ -1,12 +1,15 @@
 import streamlit as st
 import  pickle
-import pandas
+import pandas as pd
 
 
 movies_list=pickle.load(open('movies_list.pkl','rb'))
-df=pickle.load(open('df.pkl','rb'))
-vector=pickle.load(open('vector.pkl','rb'))
+df_dict=pickle.load(open('df_dict.pkl','rb'))
+vector_dict=pickle.load(open('vector_dict.pkl','rb'))
 similarity=pickle.load(open('similarity.pkl','rb'))
+
+df=pd.DataFrame(df_dict)
+vector=pd.DataFrame(vector_dict)
 
 
 
@@ -24,7 +27,7 @@ st.write('You selected:', selected_movie_name)
 # print(type(movies_list))
 
 number_of_movies =st.number_input('How many movies you want to recommend',step=1,value=1,format='%d') + 1
-st.write('The current number is ', number_of_movies)
+# st.write('The current number is ', number_of_movies)
 
 
 def recommend_fun(movie,number_of_movies):
@@ -59,6 +62,5 @@ if st.button('Recommend'):
        st.write(i)
 
     # st.write('Why hello there')
-
 
 

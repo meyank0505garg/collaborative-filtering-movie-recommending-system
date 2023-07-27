@@ -17,7 +17,7 @@ vector=pd.DataFrame(vector_dict)
 
 import pickle
 
-st.title('Movie Recommendation System : Collaborative Filter')
+st.title('Movie Recommendation System : Hybrid Filter')
 
 selected_movie_name = st.selectbox(
     'How would you like to be contacted?',
